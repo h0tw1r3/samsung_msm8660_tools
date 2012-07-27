@@ -67,7 +67,7 @@ START=$(date +%s)
                 fi
                 . build/envsetup.sh
                 ./vendor/cm/get-prebuilts
-                brunch cm_${COMMAND}-eng
+                brunch cm_${COMMAND}-userdebug
                 ;;
         *)
                 unset START
