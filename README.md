@@ -1,9 +1,9 @@
-CM9 Build Instructions
+CM10 Build Instructions
 =======================
 ```
-mkdir cm9
-cd cm9
-repo init -u git://github.com/CyanogenMod/android.git -b ics
+mkdir cm10
+cd cm10
+repo init -u git://github.com/CyanogenMod/android.git -b jellybean
 ```
 
 Modify your `.repo/local_manifest.xml` as follows:
@@ -11,30 +11,16 @@ Modify your `.repo/local_manifest.xml` as follows:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
   <manifest>
-    <project name="TeamChopsticks/hercskytools" path="hercskytools" remote="github" revision="ics" />
+    <project name="h0tw1r3/samsung_msm8660_tools" path="autotool" remote="github" revision="jellybean" />
   </manifest>
 ```
 
 ```
 repo sync
-vendor/cm/get-prebuilts
+autotool/build.sh skyrocket
 ```
+
 
 Auto Apply Patches
 ==================
 This script will remove any topic branches named auto, then apply all patches under topic branch auto.
-
-```
-hercskytools/cm9-skyrocket-apply.sh #if working skyrocket
-hercskytools/cm9-hercules-apply.sh #if working with hercules
-```
-
-Build
-=====
-
-```
-. build/envsetup.sh
-breakfast cm_skyrocket-userdebug #if building for skyrocket
-breakfast cm_hercules-userdebug #if building for hercules
-mka bacon
-```
